@@ -22,7 +22,6 @@
   "dependencies": {
     "axios": ">=0.22.0",
     "feed": "^4.2.2",
-    "gitalk": "^1.7.2",
     "next": "^11.1.2",
     "notion-client": "^4.9.7",
     "notion-utils": "^4.8.6",

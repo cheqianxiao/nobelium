@@ -43,8 +43,6 @@ const Header = ({ navBarTitle, fullWidth }) => {
       } else {
         navRef.current.classList.remove('sticky-nav-full')
       }
-    } else {
-      navRef.current.classList.add('remove-sticky')
     }
   }
   useEffect(() => {
@@ -107,8 +105,8 @@ const Header = ({ navBarTitle, fullWidth }) => {
               )
             : (
             <p className="ml-2 font-medium text-day dark:text-night header-name">
-              {BLOG.title},{' '}
-              <span className="font-normal">{BLOG.description}</span>
+              {BLOG.title}
+              {/* <span className="font-normal">{BLOG.description}</span> */}
             </p>
               )}
         </div>

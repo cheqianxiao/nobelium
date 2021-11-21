@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Container from '@/components/Container'
 import TagItem from '@/components/TagItem'
 import { NotionRenderer, Equation, Code, CollectionRow } from 'react-notion-x'
@@ -16,7 +15,6 @@ const Layout = ({
   children,
   blockMap,
   frontMatter,
-  emailHash,
   fullWidth = false
 }) => {
   const locale = useLocale()
@@ -26,7 +24,6 @@ const Layout = ({
       layout="blog"
       title={frontMatter.title}
       description={frontMatter.summary}
-      // date={new Date(frontMatter.publishedAt).toISOString()}
       type="article"
       fullWidth={fullWidth}
     >
@@ -36,24 +33,11 @@ const Layout = ({
         </h1>
         {frontMatter.type[0] !== 'Page' && (
           <nav className="flex mt-7 items-start text-gray-500 dark:text-gray-400">
-            <div className="flex mb-4">
-              <a href={BLOG.socialLink || '#'} className="flex">
-                <Image
-                  alt={BLOG.author}
-                  width={24}
-                  height={24}
-                  src={`https://gravatar.com/avatar/${emailHash}`}
-                  className="rounded-full"
-                />
-                <p className="ml-2 md:block">{BLOG.author}</p>
-              </a>
-              <span className="block">&nbsp;/&nbsp;</span>
-            </div>
             <div className="mr-2 mb-4 md:ml-0">
-              {formatDate(
+              {`published on ${formatDate(
                 frontMatter?.date?.start_date || frontMatter.createdTime,
                 BLOG.lang
-              )}
+              )}`}
             </div>
             {frontMatter.tags && (
               <div className="flex flex-nowrap max-w-full overflow-x-auto article-tags">
